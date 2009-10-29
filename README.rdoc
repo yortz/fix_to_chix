@@ -1,22 +1,28 @@
 = fix_to_chix
 
-http://github.com/caike/fix_to_chix
+http://github.com/caike/FixToChix
 
 == DESCRIPTION:
 
-Creates factories for factory_girl from your exsiting test or spec fixtures
+convert existing fixtures to factory_girl (http://github.com/thoughtbot/factory_girl) factories
 
 == FEATURES/PROBLEMS:
 
-Does not differ fixtures with the same name in differente files. For example, a fixture named *one* in authors.yml will have the same factory name as *one* in posts.yml:
+Does not differ fixtures with the same name in different files. 
+For example, a fixture named *one* in authors.yml will have the same factory name as *one* in posts.yml:
 
-Factory.define :one, :class_name => Author do |a| ...
+Factory.define :one, :class_name => Author do |a|
+...
+end
 
-Factory.define :one, :class_name => Post do |p| ...
+Factory.define :one, :class_name => Post do |p|
+...
+end
 
 == SYNOPSIS:
 
-ruby script/generate fix_to_chix 
+$ cd you_app_base
+$ fixtochix
 
 == REQUIREMENTS:
 
@@ -24,7 +30,13 @@ rubygems, activesupport
 
 == INSTALL:
 
-sudo gem install caike-fix_to_chix
+Make sure you have gemcutter in your sources:
+
+sudo gem install gemcutter
+gem tumble
+
+Install the gem
+sudo gem install fix_to_chix
 
 == LICENSE:
 
