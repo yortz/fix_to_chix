@@ -18,7 +18,6 @@ describe FixToChix do
 
   end
 
-
   describe FixToChix::FactoryWriter, "writing factories" do
 
     it "targets test factories by default" do
@@ -31,4 +30,5 @@ describe FixToChix do
       ftc_fixture_selector.target_folder.should match(/spec/)
     end
   end
+
 end

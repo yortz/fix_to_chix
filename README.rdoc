@@ -4,7 +4,7 @@
 
 == DESCRIPTION:
 
-FIX (describe your package)
+creates factories for factory_girl from your exsiting fixtures
 
 == FEATURES/PROBLEMS:
 
@@ -16,7 +16,7 @@ FIX (describe your package)
 
 == REQUIREMENTS:
 
-* FIX (list of requirements)
+rubygems, activesupport
 
 == INSTALL:
 
