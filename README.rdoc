@@ -35,7 +35,7 @@ Make sure you have gemcutter in your sources:
 sudo gem install gemcutter
 gem tumble
 
-Install the gem
+Install the gem:
 sudo gem install fix_to_chix
 
 == LICENSE:
