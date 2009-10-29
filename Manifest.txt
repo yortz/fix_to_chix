@@ -1,0 +1,13 @@
+History.txt
+Manifest.txt
+PostInstall.txt
+README.rdoc
+Rakefile
+lib/fix_to_chix.rb
+script/console
+script/destroy
+script/generate
+spec/fix_to_chix_spec.rb
+spec/spec.opts
+spec/spec_helper.rb
+tasks/rspec.rake
