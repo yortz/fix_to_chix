@@ -1,3 +1,5 @@
+class FileNotFoundError < IOError; end;
+
 module FixToChix
 
   class FixtureParser
@@ -6,7 +8,7 @@ module FixToChix
 
     def initialize(fixture_file)
       raise ArgumentError if fixture_file.nil?
-      raise StandardError unless File.exists?(fixture_file)
+      raise FileNotFoundError unless File.exists?(fixture_file)
       @fixture_file = fixture_file
     end
 

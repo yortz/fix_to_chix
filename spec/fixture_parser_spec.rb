@@ -3,11 +3,11 @@ require File.dirname(__FILE__) + '/spec_helper.rb'
 describe FixToChix::FixtureParser do
 
   it "raises error if no fixture file passed as argument" do
-    lambda { FixToChix::FixtureParser.new }.should raise_error
+    lambda { FixToChix::FixtureParser.new }.should raise_error(ArgumentError)
   end
 
   it "raises error if file not found" do
-    lambda { FixToChix::FixtureParser.new("bla/bla/bla") }.should raise_error
+    lambda { FixToChix::FixtureParser.new("bla/bla/bla") }.should raise_error(FileNotFoundError)
   end
 
   describe "reading file" do

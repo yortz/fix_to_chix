@@ -14,6 +14,7 @@ script/destroy
 script/generate
 spec/controller_spec.rb
 spec/factory_writer_spec.rb
+spec/fix_to_chix_spec.rb
 spec/fixture_parser_spec.rb
 spec/fixture_selector_spec.rb
 spec/fixtures/authors.yml
