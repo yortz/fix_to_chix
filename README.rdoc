@@ -12,11 +12,11 @@ It currently looks for yml files in your test and spec folders and translates th
 
 It does not differ fixtures with the same name in different files. For example, a fixture named *one* in authors.yml will have the same factory name as *one* in posts.yml:
 
-Factory.define :one, :class_name => Author do |a|
+Factory.define :one, :class => Author do |a|
 ...
 end
 
-Factory.define :one, :class_name => Post do |p|
+Factory.define :one, :class => Post do |p|
 ...
 end
 
