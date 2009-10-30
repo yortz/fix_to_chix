@@ -1,3 +1,4 @@
 reports/**/*
 pkg/**/*
 pkg/*
+doc/*

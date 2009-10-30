@@ -4,13 +4,13 @@ http://github.com/caike/fix_to_chix
 
 == DESCRIPTION:
 
-convert existing yaml fixtures to [factory_girl](http://github.com/thoughtbot/factory_girl) factories
-
+convert existing yaml fixtures to {factory_girl}[http://github.com/thoughtbot/factory_girl] factories
 
 == FEATURES/PROBLEMS:
 
-Does not differ fixtures with the same name in different files. 
-For example, a fixture named *one* in authors.yml will have the same factory name as *one* in posts.yml:
+It currently looks for yml files in your test and spec folders and translates them to factory_girl factory definitions written to test/factories.rb or spec/factories.rb
+
+It does not differ fixtures with the same name in different files. For example, a fixture named *one* in authors.yml will have the same factory name as *one* in posts.yml:
 
 Factory.define :one, :class_name => Author do |a|
 ...
@@ -20,11 +20,14 @@ Factory.define :one, :class_name => Post do |p|
 ...
 end
 
+I may solve that by using a name like :author_one and :post_one, but I'm still thinking about it.
+
 == SYNOPSIS:
 
-$ cd you_app_base
+Two simple steps to run fix_to_chix:
 
-$ fixtochix
+	$ cd <you_app_base>
+	$ fixtochix
 
 == REQUIREMENTS:
 
@@ -34,20 +37,15 @@ rubygems, hoe, activesupport
 
 Make sure you have gemcutter in your sources:
 
-sudo gem install gemcutter
-
-gem tumble
-
-
-Install the gem:
-
-sudo gem install fix_to_chix
+	(1) sudo gem install gemcutter
+	(2) gem tumble
+	(3) sudo gem install fix_to_chix
 
 == LICENSE:
 
 (The MIT License)
 
-Copyright (c) 2009 [Caike Souza](http://www.caikesouza.com)
+Copyright (c) 2009 {Caike Souza}[http://www.caikesouza.com]
 
 Permission is hereby granted, free of charge, to any person obtaining
 a copy of this software and associated documentation files (the
