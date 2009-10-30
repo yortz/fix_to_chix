@@ -45,17 +45,17 @@ describe FixToChix::FixtureParser do
 
     it "writes defines factories" do
       @parser.parse_fixture
-      @parser.output_buffer.join.should match(/Factory.define :anakin, :class_name => Author/)
+      @parser.output_buffer.join.should match(/Factory.define :anakin, :class => Author/)
 
       parser = FixToChix::FixtureParser.new(File.dirname(__FILE__) + "/fixtures/posts.yml")
       parser.parse_fixture
-      parser.output_buffer.join.should match(/Factory.define :hello_world, :class_name => Post do \|p\|/)
+      parser.output_buffer.join.should match(/Factory.define :hello_world, :class => Post do \|p\|/)
     end
     
     it "camelizes class_name" do
       parser = FixToChix::FixtureParser.new(File.dirname(__FILE__) + "/fixtures/line_items.yml")
       parser.parse_fixture
-      parser.output_buffer.join.should match(/Factory.define :bla, :class_name => LineItem do \|l\|/)
+      parser.output_buffer.join.should match(/Factory.define :bla, :class => LineItem do \|l\|/)
     end
 
     it "write attributes " do

@@ -28,7 +28,7 @@ module FixToChix
     def define_factories
       factory_definition = []
       @factory_names.each do |name|
-        factory_definition << "Factory.define :#{name}, :class_name => #{model_name.camelize} do |#{model_name[0].chr}|"
+        factory_definition << "Factory.define :#{name}, :class => #{model_name.camelize} do |#{model_name[0].chr}|"
         define_attributes_for(name).each do |attrib|
           factory_definition << attrib
         end
