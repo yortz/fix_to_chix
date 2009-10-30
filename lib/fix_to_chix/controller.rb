@@ -5,21 +5,14 @@ require 'fix_to_chix/fixture_parser'
 module FixToChix
   class Controller
     def self.parse_it_all!
-      
       selector = FixtureSelector.new
-      
-      selector.spec_fixtures.each do |fixture_file_name|
-        parser = FixtureParser.new(fixture_file_name)
-        parser.parse_fixture
-        FactoryWriter.write(parser.output_buffer, SPEC_TARGET_FILE)
+      %w[spec test].each do |type| 
+        selector.send("#{type}_fixtures").each do |fixture_file_name|
+          parser = FixtureParser.new(fixture_file_name)
+          parser.parse_fixture
+          FactoryWriter.write(parser.output_buffer, FixToChix.class_eval("#{type.upcase}_TARGET_FILE"))
+        end
       end
-      
-      selector.test_fixtures.each do |fixture_file_name|
-        parser = FixtureParser.new(fixture_file_name)
-        parser.parse_fixture
-        FactoryWriter.write(parser.output_buffer, TEST_TARGET_FILE)
-      end
-      
     end
   end
 end

@@ -7,7 +7,7 @@ module FixToChix
         output_buffer.each { |output| f.puts output }
       end
     end
-    
+
   end
 
 end

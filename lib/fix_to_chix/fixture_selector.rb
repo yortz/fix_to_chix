@@ -1,26 +1,34 @@
 module FixToChix
 
   class FixtureSelector
+    
+    attr_reader :test_fixtures_dir, :spec_fixtures_dir
 
-    def initialize
+    def initialize(options={})
+      @test_fixtures_dir = options[:test_fixtures_dir] || TEST_FIXTURES
+      @spec_fixtures_dir = options[:spec_fixtures_dir] || SPEC_FIXTURES
     end
 
     def spec_fixtures(options={})
-      all_fixtures = fetch_fixtures(options).select {|f| f =~ /spec/ }
+      all_fixtures = fetch_fixtures.select {|f| f =~ /spec/ }
       filter(all_fixtures, options)
     end
 
     def test_fixtures(options={})
-      all_fixtures = fetch_fixtures(options).select {|f| f =~ /test/ }
+      all_fixtures = fetch_fixtures.select {|f| f =~ /test/ }
       filter(all_fixtures, options)
     end
 
     private
-    def fetch_fixtures(options)
+    def fetch_fixtures
       project_fixtures = []
-      project_fixtures.concat(Dir[TEST_FIXTURES]) unless Dir[TEST_FIXTURES].empty?
-      project_fixtures.concat(Dir[SPEC_FIXTURES]) unless Dir[SPEC_FIXTURES].empty?
+      project_fixtures.concat(fetch_dir_files(self.test_fixtures_dir))
+      project_fixtures.concat(fetch_dir_files(self.spec_fixtures_dir))
       project_fixtures
+    end
+    
+    def fetch_dir_files(dir)
+      Dir[dir] unless Dir[dir].empty?
     end
 
     def filter(all_fixtures, options)
