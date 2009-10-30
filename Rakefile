@@ -1,6 +1,6 @@
 %w[rubygems rake rake/clean fileutils newgem rubigen].each { |f| require f }
 require File.dirname(__FILE__) + '/lib/fix_to_chix'
-
+require 'hoe'
 # Generate all the Rake tasks
 # Run 'rake -T' to see list of generated tasks (from gem root directory)
 $hoe = Hoe.new('fix_to_chix', FixToChix::VERSION) do |p|
@@ -12,7 +12,7 @@ $hoe = Hoe.new('fix_to_chix', FixToChix::VERSION) do |p|
   #   ['activesupport','>= 2.0.2'],
   # ]
   p.extra_dev_deps = [
-    ['newgem', ">= #{::Newgem::VERSION}"]
+    ['newgem', ">= #{::Newgem::VERSION}"], ['activesupport']
   ]
   
   p.clean_globs |= %w[**/.DS_Store tmp *.log]
