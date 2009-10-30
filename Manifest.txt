@@ -14,11 +14,11 @@ script/destroy
 script/generate
 spec/controller_spec.rb
 spec/factory_writer_spec.rb
-spec/fixture_selector_spec.rb
 spec/fixture_parser_spec.rb
+spec/fixture_selector_spec.rb
 spec/fixtures/authors.yml
-spec/fixtures/posts.yml
 spec/fixtures/line_items.yml
+spec/fixtures/posts.yml
 spec/spec.opts
 spec/spec_helper.rb
 tasks/rspec.rake
