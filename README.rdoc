@@ -1,10 +1,11 @@
 = fix_to_chix
 
-http://github.com/caike/FixToChix
+http://github.com/caike/fix_to_chix
 
 == DESCRIPTION:
 
-convert existing fixtures to factory_girl (http://github.com/thoughtbot/factory_girl) factories
+convert existing yaml fixtures to [factory_girl](http://github.com/thoughtbot/factory_girl) factories
+
 
 == FEATURES/PROBLEMS:
 
@@ -22,27 +23,31 @@ end
 == SYNOPSIS:
 
 $ cd you_app_base
+
 $ fixtochix
 
 == REQUIREMENTS:
 
-rubygems, activesupport
+rubygems, hoe, activesupport
 
 == INSTALL:
 
 Make sure you have gemcutter in your sources:
 
 sudo gem install gemcutter
+
 gem tumble
 
+
 Install the gem:
+
 sudo gem install fix_to_chix
 
 == LICENSE:
 
 (The MIT License)
 
-Copyright (c) 2009 Caike Souza
+Copyright (c) 2009 [Caike Souza](http://www.caikesouza.com)
 
 Permission is hereby granted, free of charge, to any person obtaining
 a copy of this software and associated documentation files (the
