@@ -32,7 +32,7 @@ describe FixToChix::FixtureParser do
     end
 
     it "has factory names" do
-      @parser.factory_names.should == ["anakin", "yoda"]
+      @parser.factory_names.to_set.should == Set.new(["anakin", "yoda"])
     end
 
     it "has attributes for each factory name" do
