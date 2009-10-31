@@ -4,6 +4,8 @@ module FixToChix
 
   class FixtureParser
 
+    DEFAULT_NAMES = ["one", "two"]
+
     attr_reader :output_buffer, :factory_names, :factory_writer
 
     def initialize(fixture_file)
@@ -30,7 +32,7 @@ module FixToChix
     def define_factories
       factory_definition = []
       @factory_names.each do |name|
-        factory_definition << "Factory.define :#{name}, :class => #{model_name.camelize} do |#{model_name[0].chr}|"
+        factory_definition << "Factory.define :#{self.factory_name(name)}, :class => #{model_name.camelize} do |#{model_name[0].chr}|"
         define_attributes_for(name).each do |attrib|
           factory_definition << attrib
         end
@@ -49,6 +51,10 @@ module FixToChix
       attr_value = @current_fixture[name][attribute]
       attr_value = attr_value.to_i == 0 ? "'#{attr_value}'" : "#{attr_value}"
       "  #{model_name[0].chr}.#{attribute} #{attr_value}"
+    end
+
+    def factory_name(node_name)
+      DEFAULT_NAMES.include?(node_name) ? "#{self.model_name}_#{node_name}" : node_name
     end
   end
 end

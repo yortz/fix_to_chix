@@ -72,7 +72,12 @@ describe FixToChix::FixtureParser do
       @parser.output_buffer.join.should match(/a.blog 'I write a blog'/)
       @parser.output_buffer.join.should match(/a.age 900/)
     end
-
+    
+    it "generates compound file if fixture name is :one or :two" do
+      @parser.factory_name("one").should == "author_one"
+      @parser.factory_name("anakin").should == "anakin"
+    end
+    
   end
 
 end

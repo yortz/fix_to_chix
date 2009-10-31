@@ -1,4 +1,7 @@
-== 0.0.1 2009-10-29
+=== 0.0.2 2009-10-30
 
-* 1 major enhancement:
-  * Initial release
+* Parsing fixtures with the default names (:one and :two) to factory names <model_name>_one and <model_name>_two so you don't end up with factories with the same name.
+
+=== 0.0.1 2009-10-29
+
+* initial release

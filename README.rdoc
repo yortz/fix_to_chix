@@ -6,21 +6,13 @@ http://github.com/caike/fix_to_chix
 
 convert existing yaml fixtures to {factory_girl}[http://github.com/thoughtbot/factory_girl] factories
 
-== FEATURES/PROBLEMS:
+== FEATURES:
 
 It currently looks for yml files in your test and spec folders and translates them to factory_girl factory definitions written to test/factories.rb or spec/factories.rb
 
-It does not differ fixtures with the same name in different files. For example, a fixture named *one* in authors.yml will have the same factory name as *one* in posts.yml:
+== PROBLEMS/TODO:
 
-Factory.define :one, :class => Author do |a|
-...
-end
-
-Factory.define :one, :class => Post do |p|
-...
-end
-
-I may solve that by using a name like :author_one and :post_one, but I'm still thinking about it.
+Check for namespaced modules, i.e. admin_posts.yml fixtures and Admin::Post model.
 
 == SYNOPSIS:
 

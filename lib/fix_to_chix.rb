@@ -7,9 +7,9 @@ require 'fix_to_chix/controller'
 
 module FixToChix
 
-  VERSION = '0.0.1'
+  VERSION = '0.0.2'
 
-  APP_ROOT = "." # have to call fixtochix from the app base
+  APP_ROOT = "." # need to call fixtochix command from your app base
 
   TEST_FIXTURES = "#{APP_ROOT}/test/fixtures/*"
   SPEC_FIXTURES = "#{APP_ROOT}/spec/fixtures/*"
