@@ -1,4 +1,4 @@
 #!/usr/bin/env ruby
 
 require 'fix_to_chix'
-FixToChix.execute
+FixToChix.execute(ARGV)

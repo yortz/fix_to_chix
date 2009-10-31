@@ -1,3 +1,12 @@
+=== 0.0.3 2009-10-31
+
+* Accepting arguments for matching names of fixtures to parse.
+
+  For example,
+
+		$ fixtochix -m user		# => will only parse fixtures that match /user/
+		$ fixtochix -m posts	# => will only parse fixtures that match /posts/
+
 === 0.0.2 2009-10-30
 
 * Parsing fixtures with the default names (:one and :two) to factory names <model_name>_one and <model_name>_two so you don't end up with factories with the same name.

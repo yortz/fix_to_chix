@@ -4,8 +4,9 @@ require 'fix_to_chix/fixture_parser'
 
 module FixToChix
   class Controller
-    def self.parse_it_all!
-      selector = FixtureSelector.new
+    def self.parse_it_all!(options={})
+      matching_option = options[:matching] ? { :matching => Regexp.new(options[:matching]) } : {}
+      selector = FixtureSelector.new(matching_option)
       %w[spec test].each do |type| 
         selector.send("#{type}_fixtures").each do |fixture_file_name|
           parser = FixtureParser.new(fixture_file_name)

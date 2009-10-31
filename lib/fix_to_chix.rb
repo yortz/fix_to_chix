@@ -7,7 +7,7 @@ require 'fix_to_chix/controller'
 
 module FixToChix
 
-  VERSION = '0.0.2'
+  VERSION = '0.0.3'
 
   APP_ROOT = "." # need to call fixtochix command from your app base
 
@@ -20,8 +20,16 @@ module FixToChix
   SPEC_TARGET_FILE = "#{SPEC_TARGET}/factories.rb"
   TEST_TARGET_FILE = "#{TEST_TARGET}/factories.rb"
 
-  def self.execute
-    FixToChix::Controller.parse_it_all!
+  def self.execute(args=nil)
+    FixToChix::Controller.parse_it_all!(parse_arguments(args))
+  end
+
+  def self.parse_arguments(args)
+    if args && args.index("-m")
+      { :matching => (args[args.index("-m") + 1]) }
+    else
+      {}
+    end
   end
 
 end
