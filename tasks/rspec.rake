@@ -14,18 +14,6 @@ rescue LoadError
   exit(0)
 end
 
-desc "Run the specs under spec/models"
-Spec::Rake::SpecTask.new do |t|
-  t.spec_opts = ['--options', "spec/spec.opts"]
-  t.spec_files = FileList['spec/**/*_spec.rb']
-end
-
-namespace :fix_to_chix do
-  desc "Convert your fixtures to factory"
-  task :convert => :environment do
-  end
-end
-
 require 'spec/rake/spectask'
 require "rcov/rcovtask"
 
