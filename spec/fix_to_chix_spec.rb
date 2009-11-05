@@ -1,20 +1,14 @@
 require File.dirname(__FILE__) + '/spec_helper.rb'
 
 describe FixToChix do
-
-  it "parses it all" do
-    FixToChix::Controller.should_receive(:parse_it_all!)
-    FixToChix.execute
+    
+  it "prints usage if no arguments passed" do
+    lambda{ FixToChix.execute }.should raise_error(ArgumentError)
   end
 
-  it "accepts arguments if given" do
+  it "accepts matching arguments" do
     FixToChix::Controller.should_receive(:parse_it_all!).with(:matching => "chewbacca")
-    FixToChix.execute(["-m", "chewbacca"])
-  end
-
-  it "accepts passes empty hash if no argument" do
-    FixToChix::Controller.should_receive(:parse_it_all!).with({})
-    FixToChix.execute()
+    FixToChix.execute(:matching => "chewbacca")
   end
 
 end

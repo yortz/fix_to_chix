@@ -4,6 +4,7 @@ $:.include?(File.dirname(__FILE__)) || $:.include?(File.expand_path(File.dirname
 require 'rubygems'
 require 'activesupport'
 require 'fix_to_chix/controller'
+require 'optparse'
 
 module FixToChix
 
@@ -20,16 +21,8 @@ module FixToChix
   SPEC_TARGET_FILE = "#{SPEC_TARGET}/factories.rb"
   TEST_TARGET_FILE = "#{TEST_TARGET}/factories.rb"
 
-  def self.execute(args=nil)
-    FixToChix::Controller.parse_it_all!(parse_arguments(args))
+  def self.execute(options)
+    FixToChix::Controller.parse_it_all!(options)
   end
-
-  def self.parse_arguments(args)
-    if args && args.index("-m")
-      { :matching => (args[args.index("-m") + 1]) }
-    else
-      {}
-    end
-  end
-
+  
 end
