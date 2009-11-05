@@ -1,4 +1,18 @@
 #!/usr/bin/env ruby
+begin  
+  require 'fix_to_chix'
+rescue LoadError
+  require File.dirname(__FILE__) + '/../lib/fix_to_chix'
+end
 
-require 'fix_to_chix'
-FixToChix.execute(ARGV)
+options = {}
+
+OptionParser.new do |opt|
+  opt.banner = "Usage: cd /your/app/base/dir; fixtochix [OPTIONS]"
+  opt.on("-m", "--match FILES", "Match file pattern") do |m|
+    options[:matching] = m
+  end
+  opt.parse!
+end
+
+FixToChix.execute(options)
