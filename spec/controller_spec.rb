@@ -18,9 +18,14 @@ describe FixToChix::Controller do
     FixToChix::Controller.parse_it_all!
   end
 
-  it "accepts matching file options for selector" do
+  it "accepts matching one file options for selector" do
     FixToChix::FixtureSelector.should_receive(:new).with(:matching => /anakin/).and_return(mock('Selector', :spec_fixtures => [], :test_fixtures => []))
     FixToChix::Controller.parse_it_all!(:matching => "anakin")
+  end
+  
+  it "accepts matching many files options for selector" do
+    FixToChix::FixtureSelector.should_receive(:new).with(:matching => /anakin|yoda/).and_return(mock('Selector', :spec_fixtures => [], :test_fixtures => []))
+    FixToChix::Controller.parse_it_all!(:matching => "anakin|yoda")
   end
 
   it "receives empty hash if no arg" do
