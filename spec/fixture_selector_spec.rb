@@ -31,12 +31,21 @@ describe FixToChix::FixtureSelector do
   end
 
   describe "fetching fixtures" do
-
-    it "gets from default dirs" do
+    
+    before do
       @selector = FixToChix::FixtureSelector.new
+    end
+
+    it "gets from default test dir" do
       Dir.stub!(:[]).with(FixToChix::TEST_FIXTURES).and_return(["test/fixtures/space_guns.yml"])
+      Dir.stub!(:[]).with(FixToChix::SPEC_FIXTURES).and_return([])
+      @selector.send(:fetch_fixtures).to_set.should == Set.new(["test/fixtures/space_guns.yml"]) 
+    end
+    
+    it "gets from default spec dif" do
+      Dir.stub!(:[]).with(FixToChix::TEST_FIXTURES).and_return([])
       Dir.stub!(:[]).with(FixToChix::SPEC_FIXTURES).and_return(["spec/fixtures/user_items.yml"])
-      @selector.send(:fetch_fixtures).to_set.should == Set.new(["spec/fixtures/user_items.yml","test/fixtures/space_guns.yml"]) 
+      @selector.send(:fetch_fixtures).to_set.should == Set.new(["spec/fixtures/user_items.yml"]) 
     end
 
   end
