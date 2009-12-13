@@ -8,7 +8,7 @@ require 'optparse'
 
 module FixToChix
 
-  VERSION = '0.0.3'
+  VERSION = '0.0.5'
 
   APP_ROOT = "." # need to call fixtochix command from your app base
 
@@ -24,5 +24,5 @@ module FixToChix
   def self.execute(options)
     FixToChix::Controller.parse_it_all!(options)
   end
-  
+
 end

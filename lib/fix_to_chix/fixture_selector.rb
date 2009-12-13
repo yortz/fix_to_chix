@@ -29,7 +29,11 @@ module FixToChix
     end
 
     def fetch_dir_files(dir)
-      Dir[dir] unless Dir[dir].empty?
+      if Dir[dir].empty?
+        []
+      else
+        Dir[dir]
+      end
     end
 
     def filter(all_fixtures)
